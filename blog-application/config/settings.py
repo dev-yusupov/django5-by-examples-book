@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
 
     "taggit",
 
@@ -135,5 +138,6 @@ EMAIL_PORT = 587  # Correct for TLS
 EMAIL_USE_TLS = True  # Use TLS
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
+SITE_ID = 1
 
 # Make sure to use environment variables for sensitive info
