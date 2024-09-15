@@ -1,0 +1,49 @@
+# Ignore Python cache and compiled files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore local environment files
+.env
+.env.local
+*.env
+
+# Ignore Django migration files if not needed
+**/migrations/
+
+# Ignore local databases
+*.sqlite3
+
+# Ignore static and media files if managed outside of the container
+/static/
+*/staticfiles/
+/media/
+
+# Ignore logs and temporary files
+*.log
+*.pot
+*.py[cod]
+*.log
+*.coverage
+*.cover
+*.DS_Store
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+*.swp
+
+# Ignore test coverage and cache
+.coverage
+.tox/
+.cache/
+
+# Ignore build artifacts
+build/
+dist/
+*.egg-info/
