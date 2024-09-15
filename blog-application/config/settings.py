@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+
+    "taggit",
 
     "blog.apps.BlogConfig"
 ]
@@ -78,8 +83,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": "localhost",
+        "NAME": 'blog_db',
+        "USER": 'blog',
+        "PORT": '5432',
+        "PASSWORD": 'mypassword',
     }
 }
 
@@ -128,10 +137,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'consystj@gmail.com'
-EMAIL_HOST_PASSWORD = 'nekf ebcz qzpw yidl'
+EMAIL_HOST_PASSWORD = config("PASSWORD")
 EMAIL_PORT = 587  # Correct for TLS
 EMAIL_USE_TLS = True  # Use TLS
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
+SITE_ID = 1
 
 # Make sure to use environment variables for sensitive info
