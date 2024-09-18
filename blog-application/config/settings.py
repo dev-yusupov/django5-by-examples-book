@@ -82,15 +82,16 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": "localhost",
-        "NAME": 'blog_db',
-        "USER": 'blog',
-        "PORT": '5432',
-        "PASSWORD": 'mypassword',
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'master',  # Make sure this matches your DB name
+        'USER': 'blog',
+        'PASSWORD': '2024blog',
+        'HOST': 'db',  # Docker Compose service name for the database
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
