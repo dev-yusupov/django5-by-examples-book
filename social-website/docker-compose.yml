@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  app:
+    container_name: "social-website"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./app:/server/app
+
+    command: >
+      sh -c "
+      python3 manage.py wait_for_db &&
+      python3 manage.py migrate &&
+      echo 'CLICK HERE!' 'http://localhost:8000/'  DEV MODE! &&
+      python3 manage.py runserver 0.0.0.0:8000
+      "
+
+    env_file:
+      .env
+    
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:16
+    volumes:
+      - ./.db/:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=master
+      - POSTGRES_USER=social
+      - POSTGRES_PASSWORD=2024social
+
+    ports:
+      - "5432:5432"
